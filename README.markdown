@@ -6,7 +6,7 @@ AI Interviewer is a multi-agent interview simulation system powered by **LangGra
 - Evaluating answers using a scoring rubric
 - Summarizing the candidate's performance
 
-[Recorded demo](https://drive.google.com/file/d/1ijfZ4tiBBMUzf7eWk4wCSpN1krp7TzwS/view?usp=sharing)
+[Link:-Recorded demo](https://drive.google.com/file/d/1ijfZ4tiBBMUzf7eWk4wCSpN1krp7TzwS/view?usp=sharing)
 
 ---
 
