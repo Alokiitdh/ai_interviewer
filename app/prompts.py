@@ -65,13 +65,14 @@ You will receive a report containing the evaluation results of 5 technical inter
 
 Your task is to:
 1. Calculate the **total score out of 100** (sum of all scores X 2)
-2. Generate a concise **technical summary (max 250 characters)** describing the candidate’s overall performance, strengths, and areas for improvement.
+2. Generate a concise technical summary (max **250 characters**, not words) describing the candidate’s overall performance.
+
 
 ---
 
 **Output Format should be well structured**
-- Final score : Int
-- Performance Summary: string
+- "Final score" : Int
+- "Performance Summary": string
 Be honest, neutral, and constructive in tone. Focus on conceptual strengths/weaknesses, technical communication, and breadth of understanding.
 """
 
@@ -94,6 +95,6 @@ The flow for each question:
 - Evaluate: evaluation_agent
 - Repeat until 5 total questions are completed.
 
-Keep the messages well-structured and brief, especially in CLI mode.
-Do not exceed the 5-question limit unless explicitly restarted.
+Only return `question_framing_agent` messages to user-facing interface; keep evaluation results internal unless explicitly requested.
+
 """

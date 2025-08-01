@@ -17,36 +17,27 @@ def run_cli():
     question_number = 1
 
     while True:
-        last_msg = state["messages"][-1]
+        messages = state["messages"]
+        last_msg = messages[-1]
+        last_msg_content = getattr(last_msg, "content", str(last_msg))
 
-        # FIX: Use dot notation
-        if isinstance(last_msg, str):
-            last_msg_content = last_msg
-        else:
-            last_msg_content = last_msg.content
-
-        if "final_score" in last_msg_content.lower():  # or any other end marker you use
+        # Stop loop if final summary appears
+        if "final score" in last_msg_content.lower() or "performance summary" in last_msg_content.lower():
+            print("\n🎓 Final Evaluation:")
+            print(last_msg_content)
             break
 
+        # Show only the question
         print(f"\n🔹 Question {question_number}: {last_msg_content}")
         user_answer = input("Your answer: ").strip()
 
+        # Pass user's answer into the graph
         state = interviewer.invoke(
             {"messages": [{"role": "user", "content": user_answer}]},
             config={"thread_id": session_id}
         )
 
-        eval_msg = state["messages"][-1]
-
-        if hasattr(eval_msg, "content"):
-            print(f"✅ Evaluation: {eval_msg.content}")
-        else:
-            print("✅ Evaluation:", eval_msg)
-
         question_number += 1
-
-    print("\n🎯 Final Report:")
-    print(state["messages"][-1].content)
 
 if __name__ == "__main__":
     run_cli()
