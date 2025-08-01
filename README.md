@@ -1,6 +1,4 @@
 
----
-
 ```markdown
 # 🤖 AI Interviewer (LangGraph-based)
 
