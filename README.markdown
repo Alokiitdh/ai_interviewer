@@ -57,7 +57,7 @@ AI Interviewer is a multi-agent interview simulation system powered by **LangGra
 
 ### 🧭 Branching Logic
 
-- If score < 6 → Supervisor can ask simpler follow-up questions (optional future enhancement)
+- If score < 6 → Supervisor can ask simpler follow-up question.
 - If user enters "FINAL_EVAL" → Shortcut to trigger performance summary
 - Evaluation results are stored in internal state (only final summary is shown)
 
